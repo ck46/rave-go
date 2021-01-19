@@ -14,7 +14,7 @@ func (raveClient *RaveClient) RequestStandardPayment() *RaveResponse {
 	reqBody := bytes.NewReader(reqBytes)
 	req, _ := http.NewRequest(
 		"POST",
-		raveClient.PaymentUrl,
+		PaymentUrl,
 		reqBody,
 	)
 	req.Header.Add("Content-Type", "application/json; charset=UTF-8")

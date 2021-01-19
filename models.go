@@ -1,5 +1,10 @@
 package rave
 
+const (
+	VerificationUrl = "https://api.flutterwave.com/v3/transactions/%s/verify"
+	PaymentUrl      = "https://api.flutterwave.com/v3/payments"
+)
+
 type RaveCustomization struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`

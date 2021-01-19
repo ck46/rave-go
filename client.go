@@ -1,7 +1,5 @@
 package rave
 
-var payment_url = "https://api.flutterwave.com/v3/payments"
-
 type RaveClient struct {
 	PaymentUrl    string            `json:"payment_url"`
 	SecretKey     string            `json:"secret_key"`
@@ -11,21 +9,17 @@ type RaveClient struct {
 }
 
 func NewRaveClient() *RaveClient {
-	return &RaveClient{PaymentUrl: payment_url}
+	return &RaveClient{}
 }
 
 func NewRaveClientWithSecretKey(skey string) *RaveClient {
-	return &RaveClient{SecretKey: skey, PaymentUrl: payment_url}
+	return &RaveClient{SecretKey: skey}
 }
 
 func NewCustomRaveClient(skey string, title string, description string, logo string) *RaveClient {
 	raveClient := NewRaveClientWithSecretKey(skey)
 	raveClient.SetCustomization(title, description, logo)
 	return raveClient
-}
-
-func (raveClient *RaveClient) SetPaymentUrl(payment_url string) {
-	raveClient.PaymentUrl = payment_url
 }
 
 func (raveClient *RaveClient) SetSecretKey(skey string) {
