@@ -8,16 +8,12 @@ type RaveClient struct {
 	Response      RaveResponse      `json:"response"`
 }
 
-func NewRaveClient() *RaveClient {
-	return &RaveClient{}
-}
-
-func NewRaveClientWithSecretKey(skey string) *RaveClient {
-	return &RaveClient{SecretKey: skey}
+func NewRaveClient(secret_key string) *RaveClient {
+	return &RaveClient{SecretKey: secret_key}
 }
 
 func NewCustomRaveClient(skey string, title string, description string, logo string) *RaveClient {
-	raveClient := NewRaveClientWithSecretKey(skey)
+	raveClient := NewRaveClient(skey)
 	raveClient.SetCustomization(title, description, logo)
 	return raveClient
 }
